@@ -4,6 +4,7 @@
 1)  
 `python3 --version` - to check python version (update if necessary)   
 `pip3 --version` - to check pip version (update if necessary)  
+
 2)  
 `pip3 install pipenv` - to install pipenv (for dependency packages management)  
 
