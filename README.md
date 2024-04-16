@@ -131,8 +131,106 @@ urlpatterns = [
 The client shall see the `Hello, World!` message when navigating to `http://127.0.0.1/app_name/hello/`.  
 
 
+##### Templates
+Templates are the HTML files that are rendered by the `views.py` file.
+egsample of an html file in the `templates` directory of the app directory:  
+```html
+{% if name %}
+	<h1>Hello {{ name }}</h1>
+{% else %}
+	<h1>Hello World!</h1>
+{% endif %}
 
+```
+..with this simple html file we can pass the `name` variable from the `views.py` file.  
+```python
+# Create your views here.
+def say_hello(request):
+	return render(request, 'hello.html', { 'name': 'Serge' })
+```
+herer the 3rd argument is a dictionary that contains the variable `name` that is passed to the html file.  
 
+Nowerdays the templates are NOT typically used to render the HTML files.  
+Django as a backend framework is used to pull out data from the database and present it to the user.  
 
+##### Debugging
+To debug Django app in vscode the `launch.json` file is created in the `.vscode` directory in the root of the project. This file is created automatically when the `Run and Debug` option is selected on the side panel.  
+The first time (when the `launch.json` file does not exist) we click on the `create a launch.json file` link and select `Python` and `Django` options from the dropdown.  
+Here is the example of the generated `launch.json` file:
+```json
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Python: Django",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/manage.py",
+			"args": [
+				"runserver",
+				"9000" // specify the port different from the default 8000 to avoid conflicts
+			],
+			"django": true
+		}
+	]
+}
+```
+Once this is saved we can start the debug session clicking on the green play button on the side panel. And putting the reakpoints in the code before launching debug session.  
+
+######  django-debug-toolbar
+`https://django-debug-toolbar.readthedocs.io/en/latest/`  
+
+Installation:  
+`https://django-debug-toolbar.readthedocs.io/en/latest/installation.html`  
+`pipenv install django-debug-toolbar`  
+
+add to `settings.py` file:  
+```python
+INSTALLED_APPS = [
+	...
+	'debug_toolbar',
+]
+```
+Add to the `urls.py` file new lines:  
+```python
+..
+import debug_toolbar
+
+urlpatterns = [
+	...
+	path('__debug__/', include(debug_toolbar.urls)),
+]
+```
+
+Add to the `settings.py` file in `MIDDLEWARE` list:  
+```python
+MIDDLEWARE = [
+	'debug_toolbar.middleware.DebugToolbarMiddleware',
+	...
+]
+```
+
+Add to the `settings.py` file `INTERNAL_IPS` list:  
+```python
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+```  
+
+Once the server is started, the debug toolbar will be visible on the right side of the page.  
+The debug toolbar is very useful for analizing the SQL queries to the database.  
+
+##### Models (database models)
+Models are used to store and retrieve data from the database.  
+- Introduction to data modeling.  
+- Example of an e-commerce data model.  
+- Organizing models in apps.   
+- Coding model classes.  
+
+Models are defined in the `models.py` file of the app directory.  
+```python
+```
 
 
