@@ -244,7 +244,8 @@ urlpatterns = [
 ```
 
 4) 
-Add to the `settings.py` file in `MIDDLEWARE` list:  
+Add to the `settings.py` file in `MIDDLEWARE` list:
+
 ```python
 MIDDLEWARE = [
 	'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -253,7 +254,8 @@ MIDDLEWARE = [
 ```
 
 5) 
-Add to the `settings.py` file `INTERNAL_IPS` list:  
+Add to the `settings.py` file `INTERNAL_IPS` list (create if not exist):
+  
 ```python
 INTERNAL_IPS = [
     # ...
