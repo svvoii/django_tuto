@@ -277,4 +277,8 @@ Models are defined in the `models.py` file of the app directory.
 ```
 ...
 
+Credit:  
+This content was inspired by [mosh-hamedani](https://github.com/mosh-hamedani)  
+[youtube](https://www.youtube.com/watch?v=rHux0gMZ3Eg)  
+
 
