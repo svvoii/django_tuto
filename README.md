@@ -37,7 +37,6 @@ We can go inside that virtual environment directory to explore the `bin` directo
 `cd /home/sbocanci/.local/share/virtualenvs/django_tuto-SIq5Ifcc`  
 
 Also in the project directory, we can see the `Pipfile` and `Pipfile.lock` files.  
-All other `.py` are the django files, considered as modules.  
 
 5)  
 Now we activate the virtual environment specific to the project, not the global one:  
@@ -46,7 +45,8 @@ Now we activate the virtual environment specific to the project, not the global 
 
 6)  
 `django-admin` - to see the django-admin commands.  
-`django-admin startproject project_name .` - to create a new django project in the current directory. This will be the core project directory.    
+`django-admin startproject project_name .` - to create a new django project in the current directory. This will be the core project directory.
+All other `.py` files inside the project dicectory are the django files, considered as modules.   
 
 Created `manage.py` file is the entry point to the project. It is used to run the server, create migrations, etc.  
 The following commands shall be run in the project directory and with the virtual environment activated (step 5).
@@ -54,7 +54,9 @@ The following commands shall be run in the project directory and with the virtua
 7)  
 `python manage.py runserver` - to start the server. Also we can specify the port: `python manage.py runserver 8080`, by default it will run on port 8000.    
 First run will show the warning about unapplied migrations.. to fix this we run:  
-`python manage.py migrate` - to apply the migrations.  
+`python manage.py migrate` - to apply the migrations.
+!! Migrations are necessary component to manage changes to the database. Making changes to the `models` module will require to use `makemigrations` and `migrate` commands to ensure the database is functioning properly.  
+
 Also the second to the last line will show the link to our webapp page: `http://127.0.0.1:8000/`  
 
 ##### Creating a new app in the project directory  
