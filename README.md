@@ -215,8 +215,8 @@ This toolbar is easy to use and it offers good visibility of wahat is going on w
 [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/)  
 
 1) 
-Installation:  
-`https://django-debug-toolbar.readthedocs.io/en/latest/installation.html`  
+[Installation](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)    
+
 `pipenv install django-debug-toolbar`  
 
 2) 
