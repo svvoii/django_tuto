@@ -220,7 +220,7 @@ Installation:
 `pipenv install django-debug-toolbar`  
 
 2) 
-Adding the following to `settings.py` file:
+Adding the following to `settings.py` file in `<project_name>`:
   
 ```python
 INSTALLED_APPS = [
@@ -230,10 +230,10 @@ INSTALLED_APPS = [
 ```
 
 3) 
-Add to the `urls.py` file new lines:  
+Add to the `<project_name>/urls.py` file new lines:  
 
 ```python
-..
+...
 import debug_toolbar
 
 urlpatterns = [
@@ -242,6 +242,7 @@ urlpatterns = [
 ]
 ```
 
+4) 
 Add to the `settings.py` file in `MIDDLEWARE` list:  
 ```python
 MIDDLEWARE = [
@@ -250,6 +251,7 @@ MIDDLEWARE = [
 ]
 ```
 
+5) 
 Add to the `settings.py` file `INTERNAL_IPS` list:  
 ```python
 INTERNAL_IPS = [
@@ -259,10 +261,10 @@ INTERNAL_IPS = [
 ]
 ```  
 
-Once the server is started, the debug toolbar will be visible on the right side of the page.  
-The debug toolbar is very useful for analizing the SQL queries to the database.  
+#### Once the server is started, the debug toolbar will be visible on the right side of the page. The debug toolbar is very useful, especially for analizing the SQL queries to the database.  
 
-##### Models (database models)
+## Models (database models)
+
 Models are used to store and retrieve data from the database.  
 - Introduction to data modeling.  
 - Example of an e-commerce data model.  
@@ -272,5 +274,6 @@ Models are used to store and retrieve data from the database.
 Models are defined in the `models.py` file of the app directory.  
 ```python
 ```
+...
 
 
