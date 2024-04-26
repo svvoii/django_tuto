@@ -242,6 +242,7 @@ urlpatterns = [
 	path('__debug__/', include(debug_toolbar.urls)),
 ]
 ```
+...need to add an import declaration!!  
 
 4) 
 Add to the `settings.py` file in `MIDDLEWARE` list:
