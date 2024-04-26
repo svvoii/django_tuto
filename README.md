@@ -17,7 +17,7 @@
 
 ..if `pipenv` is not found, add the following to the `~/.zshrc` file:  
 `python3 -m site --user-base` - this will output a path. Append /bin to this path.
-`echo 'export PATH="<your-directory-path>:$PATH"' >> ~/.zshrc` - Replace <your-directory-path> with the path from precious step  
+`echo 'export PATH="<your-directory-path>:$PATH"' >> ~/.zshrc` - Replace <your-directory-path> with the path from previous step  
 `source ~/.zshrc` - to update the shell  
 
 `pipenv install django` will output the path to the virtual environment created:  
@@ -33,7 +33,7 @@ If working in vscode it is recommended to use the `pipenv` virtual environment c
 In `command palette` (Ctrl+Shift+P) type `Python: Select Interpreter` and select the environment with the path from above.. or use the `Add Interpreter` option to add a new one with the path from above + `/bin/python` in the end: `/home/sbocanci/.local/share/virtualenvs/django_tuto-SIq5Ifcc/bin/python`.  
 
 At this point `pipenv` created a virtual environment and installed django in it.  
-We can go inside that virtual environment directory to explore the `bin` directory:    
+We can go inside that virtual environment directory to explore the `bin` directory (optional, if curious):    
 `cd /home/sbocanci/.local/share/virtualenvs/django_tuto-SIq5Ifcc`  
 
 Also in the project directory, we can see the `Pipfile` and `Pipfile.lock` files.  
