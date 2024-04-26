@@ -55,7 +55,7 @@ The following commands shall be run in the project directory and with the virtua
 `python manage.py runserver` - to start the server. Also we can specify the port: `python manage.py runserver 8080`, by default it will run on port 8000.    
 First run will show the warning about unapplied migrations.. to fix this we run:  
 `python manage.py migrate` - to apply the migrations.
-!! Migrations are necessary component to manage changes to the database. Making changes to the `models` module will require to use `makemigrations` and `migrate` commands to ensure the database is functioning properly.  
+!! Migrations are necessary component to manage changes to the database. Making changes to the `models` module will require to use `python manage.py makemigrations` and `python manage.py migrate` commands every time change is made to ensure the database is functioning properly.  
 
 Also the second to the last line will show the link to our webapp page: `http://127.0.0.1:8000/`  
 
