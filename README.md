@@ -265,6 +265,10 @@ INTERNAL_IPS = [
 ]
 ```  
 
+!!! ATTENTION  
+At this point the debug-toolbar shall be available, however it will not show up if the are no proper `html` files rendered...  
+So, all rendered pages should have standard html syntax for debug-toolbat to appear.  
+
 #### Once the server is started, the debug toolbar will be visible on the right side of the page. The debug toolbar is very useful, especially for analizing the SQL queries to the database.  
 
 ## Models (database models)
