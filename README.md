@@ -42,7 +42,7 @@ All other `.py` are the django files, considered as modules.
 5)  
 Now we activate the virtual environment specific to the project, not the global one:  
 `pipenv shell` - to activate the virtual environment in the project directory (normally ther will be a `(project_name)` prefix in the terminal before the prompt).  
-`deactivate` - to deactivate the virtual environment.  
+`deactivate` - to deactivate the virtual environment (if/when needed).  
 
 6)  
 `django-admin` - to see the django-admin commands.  
