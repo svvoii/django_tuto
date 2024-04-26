@@ -1,6 +1,7 @@
 ## How I learned Django
+(quick guide + debug environment setup)  
 
-##### Steps to start a new project
+## Steps to start a new project
 1)  
 `python3 --version` - to check python version (update if necessary)   
 `pip3 --version` - to check pip version (update if necessary)  
