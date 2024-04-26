@@ -212,7 +212,7 @@ Once this is saved we can start the debug session by first putting the breakpoin
 ##  django-debug-toolbar
 
 This toolbar is easy to use and it offers good visibility of wahat is going on with the project.  
-`https://django-debug-toolbar.readthedocs.io/en/latest/`  
+[django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/)  
 
 1) 
 Installation:  
