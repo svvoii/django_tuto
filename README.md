@@ -46,19 +46,22 @@ Now we activate the virtual environment specific to the project, not the global 
 
 6)  
 `django-admin` - to see the django-admin commands.  
-`django-admin startproject <project_name> .` - to create a new django project in the current directory.
+
 `django-admin startproject <project_name>` - to create a new project in the child directory `<project_name>`.  
+or
+`django-admin startproject <project_name> .` - to create a new django project in the current directory.  
+
 This will be the core project directory.  
 
 All other `.py` files inside the project dicectory are the django files, considered as modules.   
 
 Created `manage.py` file inside the `<project_name>` directory is the entry point to the project. It is used to run the server, create migrations, etc.  
-The following commands shall be run in the project directory and with the virtual environment activated (step 5).
+The following commands shall be run in the project directory and with the virtual environment activated (step 5).  
 
 7)  
-`python manage.py runserver` - to start the server. Also we can specify the port: `python manage.py runserver 8080`, by default it will run on port 8000.    
+`python manage.py runserver` - to start the server. Also we can specify the port: `python manage.py runserver 8080`, by default it will run on port 8000.     
 First run will show the warning about unapplied migrations.. to fix this we run:  
-`python manage.py migrate` - to apply the migrations.
+`python manage.py migrate` - to apply the migrations.  
 !! Migrations are necessary component to manage changes to the database. Making changes to the `models` module will require to use `python manage.py makemigrations` and `python manage.py migrate` commands every time change is made to ensure the database is functioning properly.  
 
 Also the second to the last line will show the link to our webapp page: `http://127.0.0.1:8000/`  
@@ -76,11 +79,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', # for static files (img, css, js) ets.
 ]
 ```
+
 1) 
 We can create a new app in the project directory with the following command:  
 `python manage.py startapp new_app` - to create a new app in the project.  
 
-Note that every django app has exact same structure. Usually it is a directory with the same name as the app. Inside there is another directory `migration` (used for generating databes tbles) and a files:  
+Note that every django app has exact same structure. Usually it is a directory with the same name as the app. Inside there is another directory `migration` (used for generating databes tables) and a files:  
 `__init__.py` - is an empty file that tells python that this directory is a package.   
 `admin.py` - this is where the admin panel is configured. Defines how the admin panel will look like.     
 `apps.py` - this is where the app configuration is stored. The name `apps` is a bit misleading, it could be named `config.py`.  
@@ -112,8 +116,8 @@ def say_hello(request):
 ```
 
 2)
-Next I would like to create the link / reference from `<project_name>/<project_name>/urls.py` file in `urlpatterns` --> to the <new_app> `<project_name>/new_app/urls.py` file (which doesn't exist just yet) also in `urlpatterns`.   
-So `<project_name>/<project_name>/urls.py` e.g.:
+Next we create the link / reference from `<project_name>/<project_name>/urls.py` file in `urlpatterns` --> to the <new_app> `<project_name>/new_app/urls.py` file (which doesn't exist just yet) also in `urlpatterns`.   
+So, in existing file `<project_name>/<project_name>/urls.py` adding the following, e.g.:
   
 ```python
 from django.contrib import admin
@@ -143,13 +147,13 @@ urlpatterns = [
     path('hello/', views.say_hello)
 ]
 ```
-...to demnstrate the concept I have added two fundtion declarations, so that by visiting either `http://127.0.0.1/new_app/hello/` or `http://127.0.0.1/new_app/` both will render the logic from `say_hello` function in `<project_name>/new_app/views.py`.   
+...to demonstrate the concept we have added two fundtion declarations, so that by visiting either `http://127.0.0.1/new_app/hello/` or `http://127.0.0.1/new_app/` both will render the logic from `say_hello` function in `<project_name>/new_app/views.py`.   
 
 Now we shall see the `Hello, World!` message when navigating to `http://127.0.0.1/new_app/hello/` or `<project_name>/new_app/`.  
 
 ## Templates
 
-Templates are the HTML files that are rendered by the `views.py` file. In the those files we can use django templating syntax to take advantage of simple programming concepts from Python.  
+Templates are the HTML files that are rendered by the `views.py` file. In those files we can use django templating syntax to take advantage of simple programming logic from Python.  
 
 The following file will demonsrate how it works.  
 
@@ -178,7 +182,7 @@ def say_hello(request):
 ```
 herer the 3rd argument is a dictionary that contains the variable `name` that is passed to the html file using templating syntax.  
 
-#### Today the templates are NOT typically used to render the HTML files. Django, as a backend framework, is used mostly to manage and pull out the necessary data from the database and present it to the user.  
+**NOTE**: Today the templates are NOT typically used to render the HTML files. Django, as a backend framework, is used mostly to manage and pull out the necessary data from the database and present it to the user.  
 
 ## Debugging
 
@@ -235,7 +239,7 @@ Add to the `<project_name>/urls.py` file new lines:
 
 ```python
 ...
-import debug_toolbar
+import debug_toolbar # ADD THIS DECLARATION !!!
 
 urlpatterns = [
 	...
@@ -265,9 +269,26 @@ INTERNAL_IPS = [
 ]
 ```  
 
-!!! ATTENTION  
+**ATTENTION** !!!    
 At this point the debug-toolbar shall be available, however it will not show up if the are no proper `html` files rendered...  
 So, all rendered pages should have standard html syntax (at least `<html>` and `<body>` tags) for debug-toolbat to appear.  
+e.g.:  
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello</title>
+	</head>
+
+	<body>
+		{% if name %}
+			<h1>Hello {{ name }}</h1>
+		{% else %}
+			<h1>Hello World!</h1>
+		{% endif %}
+	</body>
+</html>
+```
 
 #### Once the server is started, the debug toolbar will be visible on the right side of the page. The debug toolbar is very useful, especially for analizing the SQL queries to the database.  
 
